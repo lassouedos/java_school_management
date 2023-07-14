@@ -1,0 +1,31 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package project_package;
+
+public class Administrator {
+    public Administrator() {
+    }
+
+    public Classroom createClassroom(String className) {
+        Classroom classroom = new Classroom(className);
+        return classroom;
+    }
+
+    public Teacher createTeacher(String teacherName) {
+        Teacher teacher = new Teacher(teacherName);
+        return teacher;
+    }
+
+    public Student createStudent(int studentId, String studentName, Classroom classroom) {
+        Student student = new Student();
+        classroom.addStudent(student);
+        return student;
+    }
+
+    public void addSubjectToTeacher(String subject, Teacher teacher) {
+        teacher.addSubject(subject);
+    }
+}

@@ -1,0 +1,32 @@
+CREATE TABLE students (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    classroom_id INT,
+    FOREIGN KEY (classroom_id) REFERENCES classrooms (id)
+);
+
+CREATE TABLE teachers (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE classrooms (
+    id INT PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE exam_notes (
+    student_id INT,
+    subject_id INT,
+    note INT,
+    PRIMARY KEY (student_id, subject_id),
+    FOREIGN KEY (student_id) REFERENCES students (id),
+    FOREIGN KEY (subject_id) REFERENCES subjects (id)
+);
+
+CREATE TABLE subjects (
+    id INT PRIMARY KEY,
+    subject_name VARCHAR(100),
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES teachers (id)
+);
